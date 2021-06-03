@@ -25,7 +25,7 @@ python setup.py build install
 Usage
 -----
 
-```
+```python
 import litesync
 import json
 import time
