@@ -1,7 +1,7 @@
 # Not referenced from the documentation, but builds the database file the other
 # code snippets expect.
 
-from pysqlite2 import dbapi2 as sqlite3
+from litesync import dbapi2 as sqlite3
 import os
 
 DB_FILE = "mydb"

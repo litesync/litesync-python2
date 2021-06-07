@@ -1,5 +1,5 @@
 #-*- coding: ISO-8859-1 -*-
-# pysqlite2/test/factory.py: tests for the various factories in pysqlite
+# litesync/test/factory.py: tests for the various factories in pysqlite
 #
 # Copyright (C) 2005-2015 Gerhard Häring <gh@ghaering.de>
 #
@@ -22,7 +22,7 @@
 # 3. This notice may not be removed or altered from any source distribution.
 
 import unittest
-import pysqlite2.dbapi2 as sqlite
+import litesync.dbapi2 as sqlite
 from collections import Sequence
 
 class MyConnection(sqlite.Connection):

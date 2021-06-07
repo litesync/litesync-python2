@@ -1,5 +1,5 @@
 #-*- coding: ISO-8859-1 -*-
-# pysqlite2/test/transactions.py: tests transactions
+# litesync/test/transactions.py: tests transactions
 #
 # Copyright (C) 2005-2015 Gerhard Häring <gh@ghaering.de>
 #
@@ -23,7 +23,7 @@
 
 import os
 import unittest
-import pysqlite2.dbapi2 as sqlite
+import litesync.dbapi2 as sqlite
 
 def get_db_path():
     return "sqlite_testdb"

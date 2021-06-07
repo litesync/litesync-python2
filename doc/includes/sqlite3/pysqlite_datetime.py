@@ -1,4 +1,4 @@
-from pysqlite2 import dbapi2 as sqlite3
+from litesync import dbapi2 as sqlite3
 import datetime
 
 con = sqlite3.connect(":memory:", detect_types=sqlite3.PARSE_DECLTYPES|sqlite3.PARSE_COLNAMES)

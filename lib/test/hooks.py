@@ -1,5 +1,5 @@
 #-*- coding: ISO-8859-1 -*-
-# pysqlite2/test/hooks.py: tests for various SQLite-specific hooks
+# litesync/test/hooks.py: tests for various SQLite-specific hooks
 #
 # Copyright (C) 2006-2015 Gerhard Häring <gh@ghaering.de>
 #
@@ -22,7 +22,7 @@
 # 3. This notice may not be removed or altered from any source distribution.
 
 import unittest
-import pysqlite2.dbapi2 as sqlite
+import litesync.dbapi2 as sqlite
 
 class CollationTests(unittest.TestCase):
     def setUp(self):

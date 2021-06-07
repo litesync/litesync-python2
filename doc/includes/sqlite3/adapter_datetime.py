@@ -1,4 +1,4 @@
-from pysqlite2 import dbapi2 as sqlite3
+from litesync import dbapi2 as sqlite3
 import datetime, time
 
 def adapt_datetime(ts):

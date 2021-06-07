@@ -1,5 +1,5 @@
 #-*- coding: ISO-8859-1 -*-
-# pysqlite2/__init__.py: the pysqlite2 package.
+# litesync/__init__.py: the litesync package.
 #
 # Copyright (C) 2005-2015 Gerhard Häring <gh@ghaering.de>
 #
@@ -20,3 +20,5 @@
 # 2. Altered source versions must be plainly marked as such, and must not be
 #    misrepresented as being the original software.
 # 3. This notice may not be removed or altered from any source distribution.
+
+from litesync.dbapi2 import *

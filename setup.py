@@ -69,9 +69,9 @@ It is almost fully compliant with the Python database API version 2.0 also
 exposes the unique features of SQLite."""
 
 if sys.platform != "win32":
-    define_macros.append(('MODULE_NAME', '"pysqlite2.dbapi2"'))
+    define_macros.append(('MODULE_NAME', '"litesync.dbapi2"'))
 else:
-    define_macros.append(('MODULE_NAME', '\\"pysqlite2.dbapi2\\"'))
+    define_macros.append(('MODULE_NAME', '\\"litesync.dbapi2\\"'))
 
 class TestRunner(Command):
     description = "Runs the unit tests"
@@ -86,7 +86,7 @@ class TestRunner(Command):
     def run(self):
         build_dir = "build/lib.linux-x86_64-%i.%i" % sys.version_info[:2]
         sys.path.append(build_dir)
-        from pysqlite2 import test
+        from litesync import test
         result = test.test()
         if result.errors or result.failures:
             sys.exit(1)
@@ -165,11 +165,11 @@ def get_setup_args():
         sys.stdout.write("Fatal error: PYSQLITE_VERSION could not be detected!\n")
         sys.exit(1)
 
-    data_files = [("pysqlite2-doc",
+    data_files = [("litesync-doc",
                         glob.glob("doc/*.html") \
                       + glob.glob("doc/*.txt") \
                       + glob.glob("doc/*.css")),
-                   ("pysqlite2-doc/code",
+                   ("litesync-doc/code",
                         glob.glob("doc/code/*.py"))]
 
     py_modules = ["sqlite"]
@@ -185,12 +185,12 @@ def get_setup_args():
             url = "http://github.com/ghaering/pysqlite",
 
             # Description of the modules and packages in the distribution
-            package_dir = {"pysqlite2": "lib"},
-            packages = ["pysqlite2", "pysqlite2.test"],
+            package_dir = {"litesync": "lib"},
+            packages = ["litesync", "litesync.test"],
             scripts=[],
             data_files = data_files,
 
-            ext_modules = [Extension( name="pysqlite2._sqlite",
+            ext_modules = [Extension( name="litesync._sqlite",
                                       sources=sources,
                                       include_dirs=include_dirs,
                                       library_dirs=library_dirs,

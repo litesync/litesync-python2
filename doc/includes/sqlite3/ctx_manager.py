@@ -1,5 +1,5 @@
 from __future__ import with_statement
-from pysqlite2 import dbapi2 as sqlite3
+from litesync import dbapi2 as sqlite3
 
 con = sqlite3.connect(":memory:")
 con.execute("create table person (id integer primary key, firstname varchar unique)")

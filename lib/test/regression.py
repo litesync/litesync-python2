@@ -1,5 +1,5 @@
 #-*- coding: ISO-8859-1 -*-
-# pysqlite2/test/regression.py: pysqlite regression tests
+# litesync/test/regression.py: pysqlite regression tests
 #
 # Copyright (C) 2006-2015 Gerhard H�ring <gh@ghaering.de>
 #
@@ -23,7 +23,7 @@
 
 import datetime
 import unittest
-import pysqlite2.dbapi2 as sqlite
+import litesync.dbapi2 as sqlite
 
 class RegressionTests(unittest.TestCase):
     def setUp(self):

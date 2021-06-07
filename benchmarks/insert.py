@@ -4,12 +4,12 @@ def yesno(question):
     val = raw_input(question + " ")
     return val.startswith("y") or val.startswith("Y")
 
-use_pysqlite2 = yesno("Use pysqlite 2.0?")
+use_litesync = yesno("Use pysqlite 2.0?")
 use_autocommit = yesno("Use autocommit?")
 use_executemany= yesno("Use executemany?")
 
-if use_pysqlite2:
-    from pysqlite2 import dbapi2 as sqlite
+if use_litesync:
+    from litesync import dbapi2 as sqlite
 else:
     import sqlite
 
@@ -17,7 +17,7 @@ else:
 def create_db():
     con = sqlite.connect(":memory:")
     if use_autocommit:
-        if use_pysqlite2:
+        if use_litesync:
             con.isolation_level = None
         else:
             con.autocommit = True

@@ -1,4 +1,4 @@
-from pysqlite2 import dbapi2 as sqlite3
+from litesync import dbapi2 as sqlite3
 
 def authorizer_callback(action, arg1, arg2, dbname, source):
     if action != sqlite3.SQLITE_SELECT:

@@ -1,4 +1,4 @@
-from pysqlite2 import dbapi2 as sqlite3
+from litesync import dbapi2 as sqlite3
 
 # Create a connection to the database file "mydb":
 con = sqlite3.connect("mydb")

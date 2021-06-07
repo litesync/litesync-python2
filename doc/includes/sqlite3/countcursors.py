@@ -1,4 +1,4 @@
-from pysqlite2 import dbapi2 as sqlite3
+from litesync import dbapi2 as sqlite3
 
 class CountCursorsConnection(sqlite3.Connection):
     def __init__(self, *args, **kwargs):

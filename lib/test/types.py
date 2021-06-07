@@ -1,5 +1,5 @@
 #-*- coding: ISO-8859-1 -*-
-# pysqlite2/test/types.py: tests for type conversion and detection
+# litesync/test/types.py: tests for type conversion and detection
 #
 # Copyright (C) 2005-2015 Gerhard Häring <gh@ghaering.de>
 #
@@ -23,7 +23,7 @@
 
 import datetime
 import unittest
-import pysqlite2.dbapi2 as sqlite
+import litesync.dbapi2 as sqlite
 try:
     import zlib
 except:

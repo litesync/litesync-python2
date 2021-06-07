@@ -1,5 +1,5 @@
 #-*- coding: ISO-8859-1 -*-
-# pysqlite2/test/dbapi.py: tests for DB-API compliance
+# litesync/test/dbapi.py: tests for DB-API compliance
 #
 # Copyright (C) 2004-2015 Gerhard Häring <gh@ghaering.de>
 #
@@ -26,7 +26,7 @@ try:
     import threading
 except ImportError:
     threading = None
-import pysqlite2.dbapi2 as sqlite
+import litesync.dbapi2 as sqlite
 
 class ModuleTests(unittest.TestCase):
     def CheckAPILevel(self):

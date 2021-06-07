@@ -1,5 +1,5 @@
 #-*- coding: ISO-8859-1 -*-
-# pysqlite2/test/__init__.py: the package containing the test suite
+# litesync/test/__init__.py: the package containing the test suite
 #
 # Copyright (C) 2004-2015 Gerhard Häring <gh@ghaering.de>
 #
@@ -23,7 +23,7 @@
 
 import unittest
 
-from pysqlite2.test import dbapi, types, userfunctions, factory, transactions,\
+from litesync.test import dbapi, types, userfunctions, factory, transactions,\
     hooks, regression, dump
 
 def suite():
