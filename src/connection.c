@@ -367,6 +367,51 @@ int pysqlite_check_connection(pysqlite_Connection* con)
     }
 }
 
+PyObject* pysqlite_connection_is_ready(pysqlite_Connection* self)
+{
+    int rc;
+    sqlite3_stmt* statement;
+    const char *sync_status;
+    int is_ready = 0;
+
+    Py_BEGIN_ALLOW_THREADS
+    rc = sqlite3_prepare_v2(self->db, "pragma sync_status", -1, &statement, NULL);
+    Py_END_ALLOW_THREADS
+
+    if (rc != SQLITE_OK) {
+        _pysqlite_seterror(self->db);
+        goto error;
+    }
+
+    rc = pysqlite_step(statement, self);
+    if (rc != SQLITE_ROW) {
+        _pysqlite_seterror(self->db);
+    }
+
+    // retrieve the result (string)
+    sync_status = (const char *)sqlite3_column_text(statement, 0);
+    if (sync_status) {
+        if (strstr(sync_status, "\"db_is_ready\": true") != NULL) {
+            is_ready = 1;
+        }
+    }
+
+    Py_BEGIN_ALLOW_THREADS
+    rc = sqlite3_finalize(statement);
+    Py_END_ALLOW_THREADS
+
+    if (rc != SQLITE_OK && !PyErr_Occurred()) {
+        _pysqlite_seterror(self->db);
+    }
+
+error:
+    if (PyErr_Occurred()) {
+        return NULL;
+    } else {
+        return PyBool_FromLong(is_ready);
+    }
+}
+
 PyObject* _pysqlite_connection_begin(pysqlite_Connection* self)
 {
     int rc;
@@ -1601,6 +1646,8 @@ static PyMethodDef connection_methods[] = {
     {"backup", (PyCFunction)pysqlite_connection_backup, METH_VARARGS|METH_KEYWORDS,
         PyDoc_STR("Backup database.")},
     #endif
+    {"is_ready", (PyCFunction)pysqlite_connection_is_ready, METH_NOARGS,
+        PyDoc_STR("Check if the database is ready for access.")},
     {"cursor", (PyCFunction)pysqlite_connection_cursor, METH_VARARGS|METH_KEYWORDS,
         PyDoc_STR("Return a cursor for the connection.")},
     {"close", (PyCFunction)pysqlite_connection_close, METH_NOARGS,
